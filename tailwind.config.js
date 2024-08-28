@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       fontFamily:{
-        main:["Satisfy"]
+        main:["reklame-script"],
+        body:["brandon-grotesque"]
       }
     },
   },
