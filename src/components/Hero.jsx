@@ -15,7 +15,7 @@ const Hero = () => {
     
     let active = 'home';
     for (let i = offsets.length - 1; i >= 0; i--) {
-      if (scrollPosition >= offsets[i]) {
+      if (scrollPosition >= offsets[i]) { 
         active = sections[i].id;
         break;
       }
@@ -29,8 +29,10 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative h-screen w-screen">
-      <img src={background} className="fixed h-full w-full object-cover z-0" alt="background" />
+    <section id="home" className="h-screen">
+    <>
+    <div className=" h-screen w-screen">
+      <img src={background} className=" h-full w-full object-cover z-0" alt="background" />
       <img src={gamejam} className="absolute top-4 left-48 z-10" alt="gamejam" />
       <div className='absolute font-main text-[#f2b386] text-3xl top-6 left-64 z-10'>
         Game <br /> Jam
@@ -56,12 +58,12 @@ const Hero = () => {
       <div className="group  z-20">
         <img
           src={iphone}
-          className="absolute right-64 bottom-10 h-[600px] transition-transform duration-500 ease-in-out transform group-hover:scale-110"
+          className="absolute right-64 bottom-10 h-[600px] mb-[55px] transition-transform duration-500 ease-in-out transform group-hover:scale-110"
           alt="iphone"
         />
         <img
           src={game}
-          className="absolute right-[270px] bottom-[115px] h-[475px] transition-transform duration-500 ease-in-out transform group-hover:scale-110"
+          className="absolute right-[270px] bottom-[115px] h-[475px] mb-[55px] transition-transform duration-500 ease-in-out transform group-hover:scale-110"
           alt="game"
         />
       </div>
@@ -85,23 +87,11 @@ const Hero = () => {
         ))}
       </div>
 
-    
-      <section id="home" className="h-screen">
-  
-      </section>
-      <section id="key-features" className="h-screen">
-      
-      </section>
-      <section id="screenshots" className="h-screen">
-      
-      </section>
-      <section id="press" className="h-screen">
-        
-      </section>
-      <section id="blog" className="h-screen">
-       
-      </section>
+     
+     
     </div>
+    </>
+    </section>
   );
 };
 
