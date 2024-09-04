@@ -31,7 +31,7 @@ const Hero = () => {
   return (
     <section id="home" className="h-screen">
     <>
-    <div className=" h-screen w-screen">
+    <div className="h-screen w-screen">
       <img src={background} className=" h-full w-full object-cover z-0" alt="background" />
       <img src={gamejam} className="absolute top-4 left-48 z-10" alt="gamejam" />
       <div className='absolute font-main text-[#f2b386] text-3xl top-6 left-64 z-10'>
