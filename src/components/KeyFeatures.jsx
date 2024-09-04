@@ -8,7 +8,7 @@ const KeyFeatures = () => {
     <section id="key-features" className="h-screen w-screen overflow-hidden">
     <div>
         <img src={arc} className=' mt-[-55px] h-full w-full '></img>
-        <img src={planet} className= 'absolute mt-[-10px] h-max w-full '></img>
+        <img src={planet} className= 'absolute mt-[-10px] h-full w-full '></img>
         </div>
 
           <div >
