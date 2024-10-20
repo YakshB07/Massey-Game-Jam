@@ -16,7 +16,7 @@ const KeyFeatures = () => {
         <img src={alien} className='absolute h-[500px] w-65 left-48 transform -translate-y-1/2 z-40 animate-float' alt="Alien" />
       </div>
 
-      <div className="relative left-0 top-[120px] flex flex-col items-center h-full z-50">
+      <div className="relative left-0 top-[120px] flex flex-col items-center z-50">
 
         <div className='ml-[300px]'>
           <div className="mt-8 lg:mt-0 lg:ml-12">

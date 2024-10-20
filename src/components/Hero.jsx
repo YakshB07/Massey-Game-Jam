@@ -5,8 +5,33 @@ import iphone from '../assets/iphone.webp';
 import game from '../assets/game.webp';
 import useScrollPosition from './useScrollPosition';
 import KeyFeatures from './KeyFeatures';
-import Press from './Press';
-import Screenshots from './Screenshots';
+import Team from './Team';
+
+const smoothScrollTo = (target, duration) => {
+  const start = window.pageYOffset;
+  const end = target.offsetTop;
+  const distance = end - start;
+  let startTime = null;
+
+  const animation = currentTime => {
+    if (startTime === null) startTime = currentTime;
+    const timeElapsed = currentTime - startTime;
+    const progress = Math.min(timeElapsed / duration, 1); 
+
+   
+    const ease = progress < 0.5 
+      ? 4 * progress * progress * progress 
+      : (progress - 1) * (2 * progress - 2) * (2 * progress - 2) + 1;
+
+    window.scrollTo(0, start + distance * ease);
+
+    if (progress < 1) {
+      requestAnimationFrame(animation);
+    }
+  };
+
+  requestAnimationFrame(animation);
+};
 
 const Hero = () => {
   const scrollPosition = useScrollPosition();
@@ -33,7 +58,7 @@ const Hero = () => {
   const handleDotClick = (sectionId) => {
     const section = document.getElementById(sectionId);
     if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
+      smoothScrollTo(section, 1000);
     }
   };
 
@@ -47,7 +72,7 @@ const Hero = () => {
             Game <br /> Jam
           </div>
 
-          {/* Navigation Links */}
+         
           <div
             className='absolute top-8 right-[500px] text-2xl font-main text-[#f2b386] cursor-pointer group z-10'
             onClick={() => handleDotClick('key-features')}
@@ -55,22 +80,10 @@ const Hero = () => {
             Key Features
             <span className='block h-[2px] bg-[#f2b386] scale-x-0 transition-transform duration-300 origin-left group-hover:scale-x-100'></span>
           </div>
-          <div className='absolute top-8 right-[370px] text-2xl font-main text-[#f2b386] cursor-pointer group z-10'
-            onClick={() => handleDotClick('screenshots')}
+          <div className='absolute top-8 right-[380px] text-2xl font-main text-[#f2b386] cursor-pointer group z-10'
+            onClick={() => handleDotClick('Team')}
           >
-            Screenshots
-            <span className='block h-[2px] bg-[#f2b386] scale-x-0 transition-transform duration-300 origin-left group-hover:scale-x-100'></span>
-          </div>
-          <div className='absolute top-8 right-[300px] text-2xl font-main text-[#f2b386] cursor-pointer group z-10'
-            onClick={() => handleDotClick('press')}
-          >
-            Press
-            <span className='block h-[2px] bg-[#f2b386] scale-x-0 transition-transform duration-300 origin-left group-hover:scale-x-100'></span>
-          </div>
-          <div className='absolute top-8 right-[225px] text-2xl font-main text-[#f2b386] cursor-pointer group z-10'
-            onClick={() => handleDotClick('blog')}
-          >
-            Blog
+            The Team
             <span className='block h-[2px] bg-[#f2b386] scale-x-0 transition-transform duration-300 origin-left group-hover:scale-x-100'></span>
           </div>
 
@@ -97,12 +110,11 @@ const Hero = () => {
       </section>
 
       <KeyFeatures />
-      <Screenshots />
-      <Press />
+      <Team />
 
-      {/* Dots Navigation */}
+      
       <div className="fixed right-10 top-1/2 transform -translate-y-1/2 space-y-2 z-50">
-        {['home', 'key-features', 'screenshots', 'press', 'blog'].map((section, index) => (
+        {['home', 'key-features', 'Team'].map((section, index) => (
           <div
             key={index}
             className={`w-3 h-3 rounded-full cursor-pointer transition-transform duration-300 ${
