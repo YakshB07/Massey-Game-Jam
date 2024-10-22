@@ -20,7 +20,7 @@ const Team = () => {
         </div>
 
         <div>
-            <img src={jad} className='absolute w-48 h-[275px] top-[280px] left-[270px] rounded-xl'></img>
+            <img src={jad} className='absolute w-52 h-auto top-[280px] left-[270px] rounded-xl'></img>
             <img src={yaksh} className='absolute w-52 top-[280px] left-[665px] rounded-xl'></img>
             <img src={gurjas} className='absolute w-52 top-[280px] left-[1070px] rounded-xl'></img>
         </div>
